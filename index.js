@@ -24,6 +24,8 @@ filesToRename.forEach((file) => {
       console.log(`Renamed ${file} to be ${newFileName}`);
     }
   );
+
+  console.log('Finished! Have a nice day!');
 });
 
 // Function to get current filenames
