@@ -8,4 +8,4 @@ Configure the const variables in index.js to get your file(s) looking the way yo
 
 Run the program by running npm run start
 
-This program requires node.js. Once installed, run npm ci to install the program's dependancies. 
+This program requires node.js. Once installed, run npm ci to install the program's dependencies. 
