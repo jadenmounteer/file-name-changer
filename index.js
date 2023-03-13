@@ -3,27 +3,35 @@
 // Import filesystem module
 const fs = require('fs');
 const directoryWithFilesToRename = 'files-to-rename';
+const textToRemoveFromFileName = '-removebg-preview';
+const fileExtension = '.png';
 
 // List all the filenames before renaming
-getCurrentFilenames();
+const filesToRename = getCurrentFilenames();
+console.log(filesToRename);
 
-// Rename the file
-fs.rename(
-  `${directoryWithFilesToRename}/hello.txt`,
-  `${directoryWithFilesToRename}/world.txt`,
-  () => {
-    console.log('\nFile Renamed!\n');
+// Rename the files
+filesToRename.forEach((file) => {
+  const indexOfTextToRemove = file.indexOf(textToRemoveFromFileName);
 
-    // List all the filenames after renaming
-    getCurrentFilenames();
-  }
-);
+  const newFileName = file.slice(0, indexOfTextToRemove) + fileExtension;
+  console.log(newFileName);
+
+  fs.rename(
+    `${directoryWithFilesToRename}/${file}`,
+    `renamed-files/${newFileName}`,
+    () => {
+      console.log(`Renamed ${file} to be ${newFileName}`);
+    }
+  );
+});
 
 // Function to get current filenames
 // in directory
 function getCurrentFilenames() {
-  console.log('Current filenames:');
+  let filesToRename = [];
   fs.readdirSync(directoryWithFilesToRename).forEach((file) => {
-    console.log(file);
+    filesToRename.push(file);
   });
+  return filesToRename;
 }
