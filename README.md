@@ -7,3 +7,5 @@ Move the files you want to rename to the files-to-rename directory.
 Configure the const variables in index.js to get your file(s) looking the way you want.
 
 Run the program by running npm run start
+
+This program requires node.js. Once installed, run npm ci to install the program's dependancies. 
